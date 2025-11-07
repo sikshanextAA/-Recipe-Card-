@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Card</title>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- All CSS styling is included here -->
+    <style>
+        /* CSS Variables for easy theme changes */
+        :root {
+            --primary-color: #c74b50; /* A warm, food-friendly red */
+            --background-color: #fdfaf6; /* A creamy off-white */
+            --card-background: #ffffff;
+            --text-color: #555;
+            --heading-color: #333;
+            --border-color: #eee;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* The main recipe card container */
+        .recipe-card {
+            width: 100%;
+            max-width: 450px;
+            background-color: var(--card-background);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensures the image respects the border-radius */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Recipe Image Styling */
+        .recipe-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Prevents the image from being stretched */
+        }
+
+        /* Container for all text content */
+        .recipe-content {
+            padding: 30px;
+        }
+
+        /* Recipe Title */
+        .recipe-title {
+            font-family: 'Lora', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-bottom: 10px;
+        }
+
+        /* Short Description */
+        .recipe-description {
+            font-size: 1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Info section with icons (Prep Time, Servings) */
+        .recipe-info {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .info-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-color);
+        }
+
+        /* Section Headings (Ingredients, Instructions) */
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Ingredients List */
+        .ingredients-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ingredients-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-size: 1em;
+        }
+
+        .ingredients-list li::before {
+            content: '✓'; /* A simple checkmark */
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        /* Instructions List */
+        .instructions-list {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        .instructions-list li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .instructions-list li::marker {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="recipe-card">
+
+        <!-- EDIT HERE: Change the src to a direct link of your recipe photo -->
+        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Spaghetti Bolognese" class="recipe-image">
+
+        <div class="recipe-content">
+            
+            <!-- EDIT HERE: Recipe Title -->
+            <h1 class="recipe-title">Classic Spaghetti Bolognese</h1>
+            
+            <!-- EDIT HERE: Recipe Description -->
+            <p class="recipe-description">A rich and flavorful classic Italian meat sauce served over spaghetti. Perfect for a comforting family dinner.</p>
+
+            <div class="recipe-info">
+                <div class="info-item">
+                    <!-- Clock Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Zm1-8.59V7a1,1,0,0,0-2,0v5.59l-3.7,3.7a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0L13,13.41Z"/></svg>
+                    <!-- EDIT HERE: Prep & Cook Time -->
+                    <span>1 hr 15 min</span>
+                </div>
+                <div class="info-item">
+                    <!-- Users Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,13a3,3,0,1,0-3-3A3,3,0,0,0,16,13Zm-2,0a1,1,0,1,1,1-1A1,1,0,0,1,14,13Zm7-3a1,1,0,0,0-1,1,5,5,0,0,1-9.9,1,1,1,0,0,0-2,0,7,7,0,0,0,13.9,0A1,1,0,0,0,21,10ZM8,13a3,3,0,1,0-3-3A3,3,0,0,0,8,13Zm-2,0a1,1,0,1,1,1-1A1,1,0,0,1,6,13Zm7-3a1,1,0,0,0-1,1,5,5,0,0,1-9.9,1,1,1,0,0,0-2,0,7,7,0,0,0,13.9,0A1,1,0,0,0,11,10Z"/></svg>
+                    <!-- EDIT HERE: Servings -->
+                    <span>4 Servings</span>
+                </div>
+            </div>
+
+            <h2 class="section-title">Ingredients</h2>
+            <!-- EDIT HERE: Your list of ingredients -->
+            <ul class="ingredients-list">
+                <li>1 tbsp Olive Oil</li>
+                <li>400g Ground Beef</li>
+                <li>1 Onion, chopped</li>
+                <li>2 Cloves Garlic, minced</li>
+                <li>1 Carrot, finely chopped</li>
+                <li>400g Canned Crushed Tomatoes</li>
+                <li>1 tsp Dried Oregano</li>
+                <li>Salt and Pepper to taste</li>
+                <li>400g Spaghetti</li>
+            </ul>
+
+            <h2 class="section-title">Instructions</h2>
+            <!-- EDIT HERE: Your recipe steps -->
+            <ol class="instructions-list">
+                <li>Heat olive oil in a large pan over medium-high heat. Add ground beef and cook until browned.</li>
+                <li>Add chopped onion, garlic, and carrot. Cook until softened, about 5 minutes.</li>
+                <li>Stir in crushed tomatoes, oregano, salt, and pepper. Bring to a simmer, then reduce heat to low, cover, and let it cook for at least 1 hour, stirring occasionally.</li>
+                <li>About 15 minutes before the sauce is done, cook spaghetti according to package directions.</li>
+                <li>Drain the spaghetti and serve hot with the bolognese sauce spooned over the top. Garnish with fresh basil or parmesan cheese if desired.</li>
+            </ol>
+
+        </div>
+    </div>
+
+</body>
+</html>
